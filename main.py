@@ -2,7 +2,7 @@
 import Screen
 import consts
 import pygame
-import grid
+import MineField
 import sys
 
 
@@ -11,7 +11,7 @@ def main():
     pygame.init()
     Screen.draw_grid(consts.WHITE)
     Screen.draw_soldier()
-    grid.create()
+    MineField.create()
     # GAME LOOP
     running = True
     while running:
@@ -22,6 +22,10 @@ def main():
 
 
 
+
+def move_solidr(): #we have to consider if the solider is in range and turn on the func only if in the main the state of
+    # if "state[is_solider_moved] == True"
+    pass
 
 def is_lose():
     # TODO: implement
