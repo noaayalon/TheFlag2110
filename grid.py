@@ -3,6 +3,7 @@ import pygame
 import consts
 import Screen
 
+
 grid = []
 
 
@@ -13,7 +14,7 @@ def create():
     #     "y": 0
     # }
 
-    global grid
+
     blockSize_width = int(consts.WINDOW_WIDTH / consts.NUMBER_OF_COLS)  # Set the size of the grid block
     blockSize_height = int(consts.WINDOW_HEIGHT / consts.NUMBER_OF_ROWS)
 
@@ -46,7 +47,11 @@ def insert_mines(mines=20):
             if check_if_empty(row, cols_mines):
                 isValid_enter_mine = True
         for j in range(3):
-            grid[row][cols_mines[j]]["x"] == "MINE"
+            grid[row][cols_mines[j]]["state"] = "MINE"
+        isValid_enter_mine = False
+
+    for row1 in range(len(grid)):
+        print(grid[row1])
 
 
 def check_if_empty(row, lst_cols):
@@ -57,8 +62,9 @@ def check_if_empty(row, lst_cols):
 
 
 grid = create()
-for row1 in range(len(grid)):
-    print(grid[row1])
+insert_mines()
+# for row1 in range(len(grid)):
+#     print(grid[row1])
 
 
 def insert_solider():
