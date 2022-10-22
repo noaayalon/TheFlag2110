@@ -37,7 +37,8 @@ def draw_grid(color):
 
 
 def draw_bush():
-    screen.blit(consts.GRASS_IMAGE, random.randrange(0, consts.WINDOW_HEIGHT), random.randrange(0, consts.WINDOW_WIDTH))
+    for i in range(20):
+        screen.blit(consts.GRASS_IMAGE, (random.randrange(0, consts.WINDOW_HEIGHT), random.randrange(0, consts.WINDOW_WIDTH)))
 
 
 
@@ -51,3 +52,14 @@ def draw_hidden_solider():
 
 def draw_hidden_mines():
     pass
+
+# check start
+def draw_game():
+    running = True
+    while running:
+        draw_grid(consts.WHITE)
+        draw_soldier()
+        draw_bush()
+
+draw_game()
+# check end
