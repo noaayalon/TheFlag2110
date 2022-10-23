@@ -15,11 +15,13 @@ def main():
     }
 
     pygame.init()
+    Screen.draw_game()
     MineField.return_init_grid()
 
-    while state["is_window_open"]:
 
-        handle_user_events()
+    # while state["is_window_open"]:
+    #
+    #     handle_user_events()
 
 
 def handle_user_events():

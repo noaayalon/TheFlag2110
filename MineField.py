@@ -71,9 +71,9 @@ def insert_solider():
 
 
 def return_init_grid():
-    grid = insert_mines()
     insert_flag()
     insert_solider()
+    grid = insert_mines()
     return grid
 
 
