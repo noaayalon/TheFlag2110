@@ -88,5 +88,4 @@ def calc_body_solider_cordinates():
 
     return lst_location_solider_body
 
-lst1 = calc_body_solider_cordinates()
-print(lst1)
+
