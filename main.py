@@ -6,19 +6,19 @@ import MineField
 import sys
 
 state = {
-        "movement_arrow": None,
-        "status": None,  # running/losing/winning
-        "key_enter": False,
-        "is_window_open": True
-    }
+    "movement_arrow": None,
+    "status": None,  # running/losing/winning
+    "key_enter": False,
+    "is_window_open": True
+}
+
+
 def main():
     pygame.init()
     Screen.draw_game()
-    MineField.return_init_grid()
-
+    MineField.create()
 
     while state["is_window_open"]:
-
         handle_user_events()
 
 
@@ -31,18 +31,13 @@ def handle_user_events():
         elif state["status"] != consts.RUNNING_STATE:
             continue
 
-        if event.type == pygame.KEYDOWN:#TODO - full the func and multiple keys (up,right,down) & ENTER
-            if event.key ==pygame.K_KP_ENTER:
+        if event.type == pygame.KEYDOWN:  # TODO - full the func and multiple keys (up,right,down) & ENTER
+            if event.key == pygame.K_KP_ENTER:
                 pass
 
             if event.key == pygame.K_LEFT:
                 move_solider()
                 pass
-
-
-
-
-
 
 
 def move_solider():  # we have to consider if the solider is in range and turn on the func only if in the main the state of
@@ -64,8 +59,8 @@ if __name__ == '__main__':
     main()
 
 # GAME LOOP
-    # running = True
-    # while running:
-    #     for event in pygame.event.get():
-    #         if event.type == pygame.QUIT:
-    #             running = False
+# running = True
+# while running:
+#     for event in pygame.event.get():
+#         if event.type == pygame.QUIT:
+#             running = False
