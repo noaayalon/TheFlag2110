@@ -5,16 +5,6 @@ import consts
 grid = []
 
 
-# def return_init_grid():
-#     insert_flag()
-#     insert_solider()
-#     grid = insert_mines()
-#
-#     grid1 = return_init_grid()
-#     for row1 in range(len(grid1)):
-#         print(grid1[row1])
-#     return grid
-
 
 def create():
     global grid
@@ -36,8 +26,6 @@ def create():
     insert_solider()
     insert_flag()
     insert_mines()
-    for row1 in range(len(grid)):
-        print(grid[row1])
 
 
 
