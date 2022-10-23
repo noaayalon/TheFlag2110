@@ -1,6 +1,6 @@
 # This is a sample Python script.
 import Screen
-import Solider
+import time
 import consts
 import pygame
 import MineField
@@ -17,12 +17,24 @@ state = {
 
 def main():
     pygame.init()
+    MineField.create()
     Screen.draw_game()
     # HiddenScreen.show_screen()
-    MineField.create()
 
     while state["is_window_open"]:
         handle_user_events()
+
+        keys = pygame.key.get_pressed()
+        if keys[pygame.K_RETURN]:
+            HiddenScreen.show_screen()
+            time.sleep(1)
+            Screen.draw_game()
+        if keys[pygame.K_RIGHT]:
+            pass
+        if keys[pygame.K_UP]:
+            pass
+        if keys[pygame.K_DOWN]:
+            pass
 
 
 def handle_user_events():
@@ -34,20 +46,17 @@ def handle_user_events():
         elif state["status"] != consts.RUNNING_STATE:
             continue
 
-        if event.type == pygame.KEYDOWN:  # TODO - full the func and multiple keys (up,right,down) & ENTER
-            if event.key == pygame.K_KP_ENTER:
-                draw_hidden_screen()
-            if event.key == pygame.K_LEFT:
-                # move_solider()
-                print("left")
-            if event.key == pygame.K_RIGHT:
-                print("RIGHT")
-        if event.type == pygame.KEYUP:
-            print("bii")
 
-
-def draw_hidden_screen():
-    HiddenScreen.show_screen()
+        # if event.type == pygame.KEYDOWN:  # TODO - full the func and multiple keys (up,right,down) & ENTER
+        #     if event.key == pygame.K_KP_ENTER:
+        #         HiddenScreen.show_screen()
+        #     if event.key == pygame.K_LEFT:
+        #         # move_solider()
+        #         print("left")
+        #     if event.key == pygame.K_RIGHT:
+        #         print("RIGHT")
+        # if event.type == pygame.KEYUP:
+        #     print("bii")
 
 
 def move_solider():  # we have to consider if the solider is in range and turn on the func only if in the main the state of
@@ -67,10 +76,3 @@ def is_win():
 
 if __name__ == '__main__':
     main()
-
-# GAME LOOP
-# running = True
-# while running:
-#     for event in pygame.event.get():
-#         if event.type == pygame.QUIT:
-#             running = False

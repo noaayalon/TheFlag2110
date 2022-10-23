@@ -3,7 +3,7 @@ import pygame
 import consts
 
 grid = []
-
+mine_list = []
 
 
 def create():
@@ -25,34 +25,40 @@ def create():
         y = y + blockSize_height
     insert_solider()
     insert_flag()
-    insert_mines()
+    create_mines()
 
+
+def create_mines():
+    extra = insert_mines()
+    while True:
+        if extra == 0:
+            break
+        extra = insert_mines(extra)
 
 
 def insert_mines(mines=20):
-    isValid_enter_mine = False
-
-    cols_mines = []
     extra_mine = 0
     for mine in range(mines):
-        while isValid_enter_mine == False:
-            row = random.randrange(0, consts.NUMBER_OF_ROWS - 1)  # TODO assure theres no duplication
-            col = random.randrange(0, consts.NUMBER_OF_COLS - 3)
-            for i in range(3):
-                cols_mines.append(col + i)
-            if check_if_empty(row, cols_mines):
-                isValid_enter_mine = True
-        for j in range(3):
-            grid[row][cols_mines[j]]["state"] = "MINE"
-        isValid_enter_mine = False
-    return grid
+        row = random.randrange(0, consts.NUMBER_OF_ROWS)
+        col = random.randrange(0, consts.NUMBER_OF_COLS - 3)
+        if not check_if_empty(row, col):
+            extra_mine += 1
+    return extra_mine
 
 
-def check_if_empty(row, lst_cols):
+def check_if_empty(row, col):
+    check = 0
     for i in range(3):
-        if not grid[row][lst_cols[i]]["state"] == "EMPTY":
-            return False
-    return True
+        box = grid[row][col + i]
+        if box["state"] == "EMPTY":
+            check += 1
+    if check == 3:
+        mine_list.append([row, col])
+        for i in range(3):
+            box["state"] = "MINE"
+        return True
+    return False
+
 
 
 def insert_flag():
@@ -62,10 +68,9 @@ def insert_flag():
 
 
 def insert_solider():
-    for i in range(4):
-        for j in range(2):
-            grid[i][j]["state"] = "SOLIDER"
-
+    for row in range(4):
+        for col in range(2):
+            grid[row][col]["state"] = "SOLIDER"
 
 
 # TODO fill the functions and link them with screen's "draw_hidden_XXX"

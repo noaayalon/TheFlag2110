@@ -17,6 +17,14 @@ SOLDIER_IMAGE = pg.transform.scale(SOLDIER_IMAGE,
 HIDDEN_SOLDIER_IMAGE = pygame.image.load('soldier_hidden.png')
 HIDDEN_SOLDIER_IMAGE = pg.transform.scale(HIDDEN_SOLDIER_IMAGE,
                                           (((WINDOW_WIDTH / NUMBER_OF_COLS) * 4), (WINDOW_HEIGHT / NUMBER_OF_ROWS) * 2))
+FLAG_IMAGE = pygame.image.load('flag.png')
+FLAG_IMAGE = pg.transform.scale(FLAG_IMAGE,
+                                 (((WINDOW_WIDTH / NUMBER_OF_COLS) * 4), (WINDOW_HEIGHT / NUMBER_OF_ROWS) * 3))
+MINE_IMAGE = pygame.image.load('mine.png')
+MINE_IMAGE = pg.transform.scale(MINE_IMAGE,
+                                 (((WINDOW_WIDTH / NUMBER_OF_COLS) * 3), (WINDOW_HEIGHT / NUMBER_OF_ROWS) * 1))
+
+
 
 BACKGROUND = (138, 201, 38)
 WHITE = (200, 200, 200)
