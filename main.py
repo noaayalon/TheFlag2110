@@ -4,6 +4,7 @@ import Solider
 import consts
 import pygame
 import MineField
+import HiddenScreen
 import sys
 
 state = {
@@ -17,6 +18,7 @@ state = {
 def main():
     pygame.init()
     Screen.draw_game()
+    # HiddenScreen.show_screen()
     MineField.create()
 
     while state["is_window_open"]:
@@ -34,11 +36,18 @@ def handle_user_events():
 
         if event.type == pygame.KEYDOWN:  # TODO - full the func and multiple keys (up,right,down) & ENTER
             if event.key == pygame.K_KP_ENTER:
-                pass
-
+                draw_hidden_screen()
             if event.key == pygame.K_LEFT:
-                move_solider()
-                pass
+                # move_solider()
+                print("left")
+            if event.key == pygame.K_RIGHT:
+                print("RIGHT")
+        if event.type == pygame.KEYUP:
+            print("bii")
+
+
+def draw_hidden_screen():
+    HiddenScreen.show_screen()
 
 
 def move_solider():  # we have to consider if the solider is in range and turn on the func only if in the main the state of
