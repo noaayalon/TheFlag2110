@@ -1,7 +1,7 @@
 import MineField
 import consts
 
-grid = MineField.return_init_grid()
+
 
 
 def is_solider_in_grid_range(arrow_motion):
@@ -43,7 +43,7 @@ def cordinate_location_of_solider_in_matrix11():  # find the left-up corner of s
     is_found = False
     for row in range(consts.NUMBER_OF_ROWS):
         for col in range(consts.NUMBER_OF_COLS):
-            if (grid[row][col]["state"] == "SOLIDER"):  # assumption - it will crash the
+            if (MineField.grid[row][col]["state"] == "SOLIDER"):  # assumption - it will crash the
                 # left-up corner of solider first, while scanning
                 tuple_location_of_solider11 = (row, col)
                 is_found = True

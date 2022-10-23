@@ -1,5 +1,6 @@
 # This is a sample Python script.
 import Screen
+import Solider
 import consts
 import pygame
 import MineField
