@@ -5,23 +5,21 @@ import pygame
 import MineField
 import sys
 
-
-def main():
-    state = {
+state = {
         "movement_arrow": None,
         "status": None,  # running/losing/winning
         "key_enter": False,
         "is_window_open": True
     }
-
+def main():
     pygame.init()
     Screen.draw_game()
     MineField.return_init_grid()
 
 
-    # while state["is_window_open"]:
-    #
-    #     handle_user_events()
+    while state["is_window_open"]:
+
+        handle_user_events()
 
 
 def handle_user_events():
@@ -34,9 +32,13 @@ def handle_user_events():
             continue
 
         if event.type == pygame.KEYDOWN:#TODO - full the func and multiple keys (up,right,down) & ENTER
+            if event.key ==pygame.K_KP_ENTER:
+                pass
+
             if event.key == pygame.K_LEFT:
                 move_solider()
                 pass
+
 
 
 

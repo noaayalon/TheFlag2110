@@ -83,3 +83,6 @@ def calc_body_solider_cordinates():
                                  tuple_location22, tuple_location32]
 
     return lst_location_solider_body
+
+tuple1 = cordinate_location_of_solider_in_matrix11()
+print(tuple1)
